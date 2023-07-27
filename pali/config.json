@@ -19,7 +19,7 @@
   "EMAIL_SMTP_TLS_CIPHERS": "SSLv3",
   "PUBLIC_URL": "http://localhost:9000",
   "USER_INVITE_URL_ALLOW_LIST": [
-    "http://localhost:9000/account/invite"
+    "http://localhost:9000/account/init"
   ],
   "PASSWORD_RESET_URL_ALLOW_LIST": [
     "http://localhost:9000/account/reset"
