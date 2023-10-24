@@ -9,12 +9,13 @@ services:
     environment:
       POSTGRES_USER: admin
       POSTGRES_DB: pali
-      POSTGRES_PASSWORD_FILE: /run/secrets/passwd.txt
+      POSTGRES_PASSWORD_FILE: /run/secrets/passwd
+    secrets:
+      - passwd
     networks:
       - directus
     volumes:
-      - /home/shun/pali-cms/pali/secrets:/run/secrets
-      - postgres_data:/var/lib/postgresql/data
+      - ./_data/postgres_data:/var/lib/postgresql/data
     restart: unless-stopped
 
   # cache:
@@ -31,10 +32,9 @@ services:
     ports:
       - 9000:9000
     volumes:
-      - /home/shun/pali-cms/pali/config.json:/directus/config.json # must absolutely path
-      - /home/shun/pali-cms/pali/secrets:/run/secrets
-      - directus_uploads:/directus/uploads
-      - directus_db:/directus/database
+      - ./config.json:/directus/config.json
+      - ./_data/directus_uploads:/directus/uploads
+      - ./_data/directus_db:/directus/database
     networks:
       - directus
     depends_on:
@@ -42,12 +42,16 @@ services:
       - postgres
     environment:
       CONFIG_PATH: /directus/config.json
+    secrets:
+      - email
+      - passwd
     restart: unless-stopped
 
 networks:
   directus:
 
-volumes:
-  postgres_data:
-  directus_db:
-  directus_uploads:
+secrets:
+  passwd:
+    file: ./_secrets/passwd.txt
+  email:
+    file: ./_secrets/email.txt
