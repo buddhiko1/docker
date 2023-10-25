@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  pgadmin:
+    image: dpage/pgadmin4
+    ports:
+      - "20000:80"
+    volumes:
+      - pgdata:/var/lib/pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: buddhiko@outlook.com 
+      PGADMIN_DEFAULT_PASSWORD_FILE: /run/secrets/passwd
+    secrets:
+      - passwd
+    restart: unless-stopped
+
+volumes:
+  pgdata:
+
+secrets:
+  passwd:
+    file: ../_secrets/passwd.txt

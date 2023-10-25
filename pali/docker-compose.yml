@@ -12,8 +12,6 @@ services:
       POSTGRES_PASSWORD_FILE: /run/secrets/passwd
     secrets:
       - passwd
-    networks:
-      - directus
     volumes:
       - ./_data/postgres_data:/var/lib/postgresql/data
     restart: unless-stopped
@@ -23,8 +21,6 @@ services:
   #   container_name: cache
   #   ports:
   #     - 6379:6379
-  #   networks:
-  #     - directus
 
   directus:
     image: directus/directus:latest
@@ -35,8 +31,6 @@ services:
       - ./config.json:/directus/config.json
       - ./_data/directus_uploads:/directus/uploads
       - ./_data/directus_db:/directus/database
-    networks:
-      - directus
     depends_on:
       # - cache
       - postgres
@@ -47,11 +41,8 @@ services:
       - passwd
     restart: unless-stopped
 
-networks:
-  directus:
-
 secrets:
   passwd:
-    file: ./_secrets/passwd.txt
+    file: ../_secrets/passwd.txt
   email:
-    file: ./_secrets/email.txt
+    file: ../_secrets/email.txt
