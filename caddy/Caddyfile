@@ -1,0 +1,19 @@
+cms.buddhiko.com {
+  reverse_proxy http://localhost:9000
+}
+
+www.buddhiko.com {
+  encode gzip
+
+  handle {
+    root * /root/pali-web
+    try_files {path} /index.html
+    file_server
+  }
+}
+
+file.buddhiko.com {
+  encode zstd gzip
+  root * /srv
+  file_server browse
+}
