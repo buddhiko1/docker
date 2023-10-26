@@ -1,5 +1,5 @@
 cms.buddhiko.com {
-  reverse_proxy {env.DIRECTUS_IP}:9000
+  reverse_proxy http://10.0.0.15:9000
 }
 
 www.buddhiko.com {
