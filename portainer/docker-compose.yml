@@ -3,6 +3,7 @@ version: "3.9"
 services:
   portainer:
     image: portainer/portainer-ce:latest
+    container_name: portainer
     ports:
       - 10000:9443
     volumes:
