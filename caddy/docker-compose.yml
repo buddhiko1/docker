@@ -8,6 +8,10 @@ services:
       - "80:80"
       - "443:443"
       - "443:443/udp"
+    environment:
+      - DIRECTUS_IP=${DIRECTUS_IP}
+    env_file:
+      - ../.env
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile
       - ./_site:/srv
