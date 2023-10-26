@@ -11,5 +11,3 @@
 
 ### Postgres
   - Active psql with `psql -U admin -d pali`
-  - Dump with `docker exec postgres pg_dump -U admin -d pali > pali.sql`
-  - Import with `docker exec postgres psql -U admin -d pali < pali.sql`

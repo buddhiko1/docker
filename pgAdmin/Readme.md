@@ -1,3 +1,3 @@
 ### Tips
-  - Host name when connect database: 192.168.1.99 .
-  - Path of docker volume where backup file is saved: /var/lib/docker/volumes .
+  - Host name for database connection: 192.168.1.99
+  - Path of docker volume where backup file is saved: /var/lib/docker/volumes.
