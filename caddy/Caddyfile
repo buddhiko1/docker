@@ -2,6 +2,10 @@ cms.buddhiko.com {
   reverse_proxy http://10.0.0.15:9000
 }
 
+docker.buddhiko.com {
+  reverse_proxy http://10.0.0.15:10000
+}
+
 www.buddhiko.com {
   encode gzip
   handle {
@@ -13,6 +17,6 @@ www.buddhiko.com {
 
 file.buddhiko.com {
   encode zstd gzip
-  root * /srv
+  root * /srv/files
   file_server browse
 }
