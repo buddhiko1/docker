@@ -24,3 +24,12 @@ file.buddhiko.com {
   root * /srv/files
   file_server browse
 }
+
+git.buddhiko.com {
+  reverse_proxy https://github.com {
+    header_up Host {upstream_hostport}
+    header_up X-Forwarded-Host {host}
+    header_up origin https://github.com
+    header_down location (https://github.com/)(.*) https://git.buddhiko.com/$2
+  }
+}
