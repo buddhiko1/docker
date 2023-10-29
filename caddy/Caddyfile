@@ -7,7 +7,21 @@ docker.buddhiko.com {
 }
 
 www.buddhiko.com {
-  encode gzip
+  encode {
+    gzip 6
+    minimum_length 516
+    match {
+      header Content-Type text/*
+      header Content-Type application/json*
+      header Content-Type application/javascript*
+      header Content-Type application/xhtml+xml*
+      header Content-Type application/atom+xml*
+      header Content-Type application/rss+xml*
+      header Content-Type image/svg+xml*
+      header Content-Type image/webp*
+
+    }
+  }
   handle {
     root * /srv/web
     try_files {path} /index.html
@@ -16,7 +30,22 @@ www.buddhiko.com {
 }
 
 file.buddhiko.com {
-  encode gzip zstd
+  encode {
+    gzip 6
+    zstd
+    minimum_length 516
+    match {
+      header Content-Type text/*
+      header Content-Type application/json*
+      header Content-Type application/javascript*
+      header Content-Type application/xhtml+xml*
+      header Content-Type application/atom+xml*
+      header Content-Type application/rss+xml*
+      header Content-Type image/svg+xml*
+      header Content-Type image/webp*
+
+    }
+  }
   root * /srv/uploads
   file_server browse
 }
