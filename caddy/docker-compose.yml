@@ -10,7 +10,7 @@ services:
       - "443:443/udp"
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile
-      - ./_files:/srv
+      - ../_files:/srv
       - ./_data/data:/data
       - ./_data/config:/config
     restart: unless-stopped

@@ -9,7 +9,7 @@ docker.buddhiko.com {
 www.buddhiko.com {
   encode gzip
   handle {
-    root * /srv/pali-web
+    root * /srv/web
     try_files {path} /index.html
     file_server
   }
@@ -17,7 +17,7 @@ www.buddhiko.com {
 
 file.buddhiko.com {
   encode gzip zstd
-  root * /srv/pali-cms
+  root * /srv/cms
   file_server browse
 }
 
