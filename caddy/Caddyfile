@@ -17,7 +17,7 @@ www.buddhiko.com {
 
 file.buddhiko.com {
   encode gzip zstd
-  root * /srv/cms
+  root * /srv/uploads
   file_server browse
 }
 

@@ -29,7 +29,7 @@ services:
       - 9000:9000
     volumes:
       - ./config.json:/directus/config.json
-      - ./_data/directus_uploads:/directus/uploads
+      - ../files/uploads:/directus/uploads
       - ./_data/directus_db:/directus/database
     depends_on:
       # - cache
