@@ -23,7 +23,7 @@ services:
   #     - 6379:6379
 
   directus:
-    image: directus/directus:10.7
+    image: directus/directus:10.8.2
     container_name: directus
     ports:
       - 9000:9000
