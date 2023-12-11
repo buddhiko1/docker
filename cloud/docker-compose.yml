@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   nextcloud:
-    image: nextcloud:27.1.4-fpm
+    image: nextcloud:27.1.4-apache
     container_name: nextcloud
     volumes:
       - ./_data:/var/www/html
