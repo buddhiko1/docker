@@ -10,17 +10,5 @@ services:
       - 30000:80
     environment:
       NEXTCLOUD_TRUSTED_DOMAINS: cloud.buddhiko.com
-      POSTGRES_HOST: www.buddhiko.com
-      POSTGRES_DB: nextcloud
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD_FILE: /run/secrets/passwd
-      NEXTCLOUD_ADMIN_USER: admin
-      NEXTCLOUD_ADMIN_PASSWORD_FILE: /run/secrets/passwd
       PHP_UPLOAD_LIMIT: 2G
-    secrets:
-      - passwd
     restart: unless-stopped
-
-secrets:
-  passwd:
-    file: ../_secrets/passwd.txt
