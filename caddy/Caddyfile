@@ -2,6 +2,10 @@ cms.buddhiko.com {
   reverse_proxy http://10.0.0.15:9000
 }
 
+cloud.buddhiko.com {
+  reverse_proxy http://10.0.0.15:30000
+}
+
 docker.buddhiko.com {
   reverse_proxy http://10.0.0.15:10000
 }
