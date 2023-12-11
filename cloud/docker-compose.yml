@@ -9,6 +9,7 @@ services:
     ports:
       - 30000:80
     environment:
+      OVERWRITECLIURL: https://cloud.buddhiko.com
       OVERWRITEPROTOCOL: https
       NEXTCLOUD_TRUSTED_DOMAINS: cloud.buddhiko.com
       PHP_UPLOAD_LIMIT: 2G
