@@ -9,6 +9,7 @@ services:
     ports:
       - 30000:80
     environment:
+      NEXTCLOUD_TRUSTED_DOMAINS: cloud.buddhiko.com
       POSTGRES_HOST: www.buddhiko.com
       POSTGRES_DB: nextcloud
       POSTGRES_USER: admin
