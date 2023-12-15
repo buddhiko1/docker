@@ -1,21 +1,6 @@
 version: "3.9"
 
 services:
-  postgres:
-    image: postgres:16.0-alpine
-    container_name: postgres
-    ports:
-      - 5432:5432
-    environment:
-      POSTGRES_USER: admin
-      POSTGRES_DB: pali
-      POSTGRES_PASSWORD_FILE: /run/secrets/passwd
-    secrets:
-      - passwd
-    volumes:
-      - ./_data/postgres_data:/var/lib/postgresql/data
-    restart: unless-stopped
-
   # cache:
   #   image: redis
   #   container_name: cache
@@ -31,9 +16,8 @@ services:
       - ./config.json:/directus/config.json
       - ../_files/uploads:/directus/uploads
       - ./_data/directus_db:/directus/database
-    depends_on:
-      # - cache
-      - postgres
+    # depends_on:
+    #   - cache
     environment:
       CONFIG_PATH: /directus/config.json
     secrets:
