@@ -15,7 +15,7 @@ services:
     volumes:
       - ./config.json:/directus/config.json
       - ../_files/uploads:/directus/uploads
-      - ./_data/directus_db:/directus/database
+      - ./_data:/directus/database
     # depends_on:
     #   - cache
     environment:
