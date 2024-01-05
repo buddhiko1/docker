@@ -7,16 +7,13 @@ services:
     ports:
       - "20000:80"
     volumes:
-      - pgdata:/var/lib/pgadmin
+      - ~/Nextcloud/work/database:/var/lib/pgadmin/storage
     environment:
       PGADMIN_DEFAULT_EMAIL: buddhiko@outlook.com 
       PGADMIN_DEFAULT_PASSWORD_FILE: /run/secrets/passwd
     secrets:
       - passwd
     restart: unless-stopped
-
-volumes:
-  pgdata:
 
 secrets:
   passwd:
