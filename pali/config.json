@@ -23,6 +23,7 @@
   "PASSWORD_RESET_URL_ALLOW_LIST": [
     "https://www.buddhiko.com/auth/password-reset"
   ],
+  "ACCESS_TOKEN_TTL": "1d",
   "CORS_ENABLED": true,
   "KEY": "/run/secrets/email",
   "SECRET": "/run/secrets/passwd"
