@@ -13,4 +13,6 @@ services:
       - ../_files:/srv
       - ./_data/data:/data
       - ./_data/config:/config
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     restart: unless-stopped
