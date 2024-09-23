@@ -1,13 +1,13 @@
 cms.buddhiko.com {
-  reverse_proxy http://10.0.0.15:9000
+  reverse_proxy http://host.docker.internal:9000
 }
 
 cloud.buddhiko.com {
-  reverse_proxy http://10.0.0.15:30000
+  reverse_proxy http://host.docker.internal:30000
 }
 
 docker.buddhiko.com {
-  reverse_proxy http://10.0.0.15:10000
+  reverse_proxy http://host.docker.internal:10000
 }
 
 www.buddhiko.com {
