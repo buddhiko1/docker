@@ -1,0 +1,24 @@
+services:
+  web:
+    image: odoo:17.0
+    user: root
+    container_name: odoo
+    ports:
+      - 8069:8069
+    volumes:
+      - ./_data/web-data:/var/lib/odoo
+      - ./_data/config/odoo.conf:/etc/odoo/odoo.conf
+      - ./_data/addons:/mnt/extra-addons
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      HOST: host.docker.internal
+      USER: admin
+      PASSWORD_FILE: /run/secrets/passwd
+    secrets:
+      - passwd
+    restart: unless-stopped
+
+secrets:
+  passwd:
+    file: ../_secrets/passwd.txt
