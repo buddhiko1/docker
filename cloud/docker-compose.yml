@@ -1,16 +1,28 @@
-version: "3.9"
-
-services:
   nextcloud:
-    image: nextcloud:27.1.4-apache
+    image: nextcloud:30.0.2-apache
     container_name: nextcloud
     volumes:
       - ./_data:/var/www/html
     ports:
       - 30000:80
+    links:
+      - redis
+    depends_on:
+      - redis
     environment:
-      OVERWRITECLIURL: https://cloud.buddhiko.com
+      SQLITE_DATABASE: cloud
+      OVERWRITECLIURL: https://cloud.fuyouindustries.com
       OVERWRITEPROTOCOL: https
-      NEXTCLOUD_TRUSTED_DOMAINS: cloud.buddhiko.com
+      NEXTCLOUD_TRUSTED_DOMAINS: cloud.fuyouindustries.com
       PHP_UPLOAD_LIMIT: 2G
+      SKIP_DOMAIN_VALIDATION: true
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
     restart: unless-stopped
+
+
+  redis:
+    image: redis:7.4.1
+    container_name: nextcloud-redis
+    restart: unless-stopped
+    command: redis-server
